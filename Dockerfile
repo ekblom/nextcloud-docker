@@ -24,6 +24,10 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/so
 
 git clone https://github.com/pbek/qownnotesapi.git custom_apps/qownnotesapi -b master
 
+occ app:enable notes
+occ app:enable tasks
+occ app:enable qownnotesapi
+
 COPY supervisord.conf /etc/supervisor/supervisord.conf
 
 CMD ["/usr/bin/supervisord"]
