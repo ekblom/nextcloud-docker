@@ -22,6 +22,8 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/so
     && mkdir /var/log/supervisord /var/run/supervisord \
     && echo "*/15 * * * * su - www-data -s /bin/bash -c \"php -f /var/www/html/cron.php\""| crontab -
 
+git clone https://github.com/pbek/qownnotesapi.git custom_apps/qownnotesapi -b master
+
 COPY supervisord.conf /etc/supervisor/supervisord.conf
 
 CMD ["/usr/bin/supervisord"]
